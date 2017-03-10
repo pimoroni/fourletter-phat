@@ -1,6 +1,8 @@
 #Four Letter pHAT
 
-Four Letter pHAT
+Four Letter pHAT has one simple purpose: to let you display four letter words<pre>*</pre>!
+
+<pre>*</pre>Not that sort!!! Also lets you display other numbers, characters, etc.
 
 https://shop.pimoroni.com/products/four-letter-phat
 
