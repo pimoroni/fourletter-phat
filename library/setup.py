@@ -51,5 +51,5 @@ setup(
     py_modules      = [],
     packages        = ['fourletterphat'],
     include_package_data = True,
-    install_requires= ['RPi.GPIO']
+    install_requires= []
 )
