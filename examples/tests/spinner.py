@@ -3,15 +3,9 @@
 import time
 import fourletterphat as flp
 
-words = ["AHOY", "YARR", "GROG"]
-spinner = ["|", "/", "-", "\"]
+spinner = ["|", "/", "-", "/"]
 
 while True:
-    for w in words:
-        flp.clear()
-        flp.print_str(w)
-        flp.show()
-        time.sleep(1)
     for i in range(4):
         for s in spinner:
             s = s * 4

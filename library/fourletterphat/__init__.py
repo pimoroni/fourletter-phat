@@ -3,7 +3,7 @@ from sys import exit, version_info
 from .i2c_bus import bus
 from .alphanum4 import AlphaNum4
 
-display = AlphaNum4()
+display = AlphaNum4(i2c=bus)
 display.begin()
 display.clear()
 display.show()
