@@ -1,0 +1,6 @@
+README
+
+Four Letter HAT features 4x14-segment matrices, allowing comprehensive display of short strings and numerical values.
+
+Learn more: https://shop.pimoroni.com/products/four-letter-phat
+For examples run: `curl https://get.pimoroni.com/fourletterphat | bash`
