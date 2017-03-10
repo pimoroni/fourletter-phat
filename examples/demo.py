@@ -18,4 +18,9 @@ while True:
             flp.clear()
             flp.print_str(s)
             flp.show()
-            time.sleep(0.1)
+            time.sleep(1 / 16.0)
+    for i in range(0,10000,50):
+        flp.clear()
+        flp.print_number_str(str(i))
+        flp.show()
+        time.sleep(1/10000.0)
