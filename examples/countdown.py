@@ -5,7 +5,7 @@ import time
 import fourletterphat as flp
 
 cd_time = input('Enter a countdown time in MM:SS, e.g. "00:30" for 30 seconds: ')
-mins, secs = [int(x) for x in cd_time.split(":")]
+mins, secs = [float(x) for x in cd_time.strip('"').split(":")]
 start_time = time.time()
 end_time = start_time + (mins * 60) + secs
 run_time = end_time - start_time
