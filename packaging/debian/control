@@ -1,6 +1,6 @@
 Source: fourletterphat
 Maintainer: Phil Howard <phil@pimoroni.com>
-Homepage: https://github.com/pimoroni/four-letter-phat
+Homepage: https://github.com/pimoroni/fourletter-phat
 Section: python
 Priority: extra
 Build-Depends: debhelper (>= 9.0.0), dh-python, python-all (>= 2.7), python-setuptools, python3-all (>= 3.4), python3-setuptools
