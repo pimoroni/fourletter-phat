@@ -1,4 +1,4 @@
-#Four Letter pHAT
+# Four Letter pHAT
 
 Four Letter pHAT has one simple purpose: to let you display four letter words\*!
 
@@ -6,7 +6,7 @@ Four Letter pHAT has one simple purpose: to let you display four letter words\*!
 
 https://shop.pimoroni.com/products/four-letter-phat
 
-##Installing
+## Installing
 
 **Full install ( recommended ):**
 
@@ -36,7 +36,7 @@ sudo pip2 install fourletterphat
 
 In all cases you will have to enable the i2c bus.
 
-##Documentation & Support
+## Documentation & Support
 
 * Getting started - https://learn.pimoroni.com/tutorial/sandyj/soldering-phats
 * Function reference - http://docs.pimoroni.com/fourletterphat/
