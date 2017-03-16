@@ -40,28 +40,61 @@ sys.path.insert(0, '../library/')
 
 from sphinx.ext import autodoc
 
-
-class OutlineMethodDocumenter(autodoc.MethodDocumenter):
-    objtype = 'methodoutline'
+class OutlineClassDocumenter(autodoc.ClassDocumenter):
+    objtype = 'class'
 
     def add_content(self, more_content, no_docstring=False):
         return
 
+class OutlineMethodDocumenter(autodoc.MethodDocumenter):
+    objtype = 'method'
+
+    def add_directive_header(self, sig):
+        if self.objpath[0] == u"AlphaNum4":
+            self.objpath[0] = u"fourletterphat"
+        autodoc.MethodDocumenter.add_directive_header(self, sig)
+
+    def add_content(self, more_content, no_docstring=False):
+        return
+
+class OutlineFunctionDocumenter(autodoc.FunctionDocumenter):
+    objtype = 'function'
+
+    def add_content(self, more_content, no_docstring=False):
+        return
+
+class MethodDocumenter(autodoc.MethodDocumenter):
+    objtype = 'method'
+
+    def add_directive_header(self, sig):
+        if self.objpath[0] == u"display":
+            self.objpath[0] = u"fourletterphat"
+        autodoc.MethodDocumenter.add_directive_header(self, sig)
+
+class ClassOutlineDocumenter(autodoc.ClassDocumenter):
+    objtype = 'classoutline'
+
+    def add_directive_header(self, sig):
+        pass # Squash directive header for At A Glance view
 
     def __init__(self, directive, name, indent=u''):
+        # Monkey patch the Method and Function documenters
         sphinx_app.add_autodocumenter(OutlineMethodDocumenter)
-        autodoc.MethodDocumenter.__init__(self, directive, name, indent)
+        #sphinx_app.add_autodocumenter(OutlineClassDocumenter)
+        sphinx_app.add_autodocumenter(OutlineFunctionDocumenter)
+        autodoc.ClassDocumenter.__init__(self, directive, name, indent)
 
     def __del__(self):
-        sphinx_app.add_autodocumenter(autodoc.MethodDocumenter)
+        # Return the Method and Function documenters to normal
+        #sphinx_app.add_autodocumenter(autodoc.ClassDocumenter)
+        sphinx_app.add_autodocumenter(MethodDocumenter)
+        sphinx_app.add_autodocumenter(autodoc.FunctionDocumenter)
 
 
 def setup(app):
     global sphinx_app
     sphinx_app = app
-    app.add_autodocumenter(OutlineMethodDocumenter)
-
-    OutlineMethodDocumenter.objtype = 'method'
+    app.add_autodocumenter(ClassOutlineDocumenter)
 
 import fourletterphat
 

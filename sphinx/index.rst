@@ -21,3 +21,66 @@ Four Letter pHAT is a Raspberry Pi add-on with four star displays.
 
 At A Glance
 -----------
+
+.. autoclassoutline:: fourletterphat.AlphaNum4
+   :members:
+   :inherited-members:
+
+.. toctree::
+   :titlesonly:
+   :maxdepth: 0
+
+Set A Single Digit
+------------------
+
+.. automethod:: fourletterphat.display.set_digit
+
+.. automethod:: fourletterphat.display.set_digit_raw
+
+
+Set A Decimal Point
+-------------------
+
+.. automethod:: fourletterphat.display.set_decimal
+
+Print A Float
+-------------
+
+.. automethod:: fourletterphat.display.print_float
+
+Print Hexadecimal
+-----------------
+
+.. automethod:: fourletterphat.display.print_hex
+
+Print A String
+--------------
+
+.. automethod:: fourletterphat.display.print_str
+
+Print A Number String
+---------------------
+
+.. automethod:: fourletterphat.display.print_number_str
+
+Blink The Display
+-----------------
+
+.. automethod:: fourletterphat.display.set_blink
+
+Set Brightness
+--------------
+
+.. automethod:: fourletterphat.display.set_brightness
+
+Clear The Display
+-----------------
+
+.. automethod:: fourletterphat.display.clear
+
+Update The Display
+------------------
+
+Once you've made your changes, you'll need to update the display.
+
+.. automethod:: fourletterphat.display.show
