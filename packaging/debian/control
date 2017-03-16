@@ -11,7 +11,7 @@ X-Python3-Version: >= 3.4
 Package: python-fourletterphat
 Architecture: all
 Section: python
-Depends: ${misc:Depends}, ${python:Depends} python-smbus
+Depends: ${misc:Depends}, ${python:Depends}, python-smbus
 Suggests: python-numpy
 Description: python library designed to control Four Letter HAT
  Ideal for displaying short strings and numerical values.
