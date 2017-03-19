@@ -3,7 +3,7 @@
 import time
 import fourletterphat as flp
 
-spinner = ["|", "/", "-", "/"]
+spinner = ["|", "/", "-", "\\"]
 
 while True:
     for i in range(4):
