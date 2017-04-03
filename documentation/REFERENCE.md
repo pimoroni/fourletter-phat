@@ -7,8 +7,8 @@ fourletterphat.set_digit(pos, digit, decimal=False)
 ```
 Set digit at position to provided value.
 
-Position should be a value of 0 to 3 with 0 being the left most digit on the display.
-Digit should be any ASCII value 32-127 (printable ASCII).
+Position should be a value of 0 to 3 with 0 being the left most digit on the display.  
+Digit should be any ASCII value 32-127 (printable ASCII).  
 
 ```python
 fourletterphat.set_digit_raw(pos, bitmask)
@@ -24,8 +24,8 @@ fourletterphat.set_decimal(pos, decimal)
 ```
 Turn decimal point on or off at provided position.
 
-Position should be a value 0 to 3 with 0 being the left most digit on the display.
-Decimal should be True to turn on the decimal point and False to turn it off.
+Position should be a value 0 to 3 with 0 being the left most digit on the display.  
+Decimal should be True to turn on the decimal point and False to turn it off.  
 
 ## Print A Float
 
@@ -34,8 +34,8 @@ fourletterphat.print_float(value, decimal_digits=2, justify_right=True)
 ```
 Print a numeric value to the display.
 
-If value is negative it will be printed with a leading minus sign.
-Decimal digits is the desired number of digits after the decimal point.
+If value is negative it will be printed with a leading minus sign.  
+Decimal digits is the desired number of digits after the decimal point.  
 
 ## Print Hexadecimal
 
@@ -71,8 +71,8 @@ fourletterphat.set_blink(frequency)
 ```
 Blink display at specified frequency.
 
-Note that frequency must be a value allowed by the HT16K33, specifically one of:
-HT16K33_BLINK_OFF, HT16K33_BLINK_2HZ, HT16K33_BLINK_1HZ, or HT16K33_BLINK_HALFHZ.
+Note that frequency must be a value allowed by the HT16K33, specifically one of:  
+HT16K33_BLINK_OFF, HT16K33_BLINK_2HZ, HT16K33_BLINK_1HZ, or HT16K33_BLINK_HALFHZ.  
 
 ## Set Brightness
 
