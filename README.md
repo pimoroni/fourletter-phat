@@ -73,5 +73,5 @@ In all cases you will have to enable the i2c bus.
 
 * Guides and tutorials - https://learn.pimoroni.com/four-letter-phat
 * Function reference - http://docs.pimoroni.com/fourletterphat/
-* GPIO Pinout - https://pinout.xyz/pinout/fourletter_phat
+* GPIO Pinout - https://pinout.xyz/pinout/four_letter_phat
 * Get help - http://forums.pimoroni.com/c/support
