@@ -79,6 +79,7 @@ class HT16K33(object):
         """
         if brightness < 0 or brightness > 15:
             raise ValueError('Brightness must be a value of 0 to 15.')
+
         self._device.write_i2c_block_data(self._i2c_addr, HT16K33_CMD_BRIGHTNESS | brightness, [])
 
     def set_led(self, led, value):
@@ -101,8 +102,7 @@ class HT16K33(object):
 
     def write_display(self):
         """Write display buffer to display hardware."""
-        for i, value in enumerate(self.buffer):
-            self._device.write_byte_data(self._i2c_addr, i, value)
+        self._device.write_i2c_block_data(self._i2c_addr, 0, list(self.buffer))
 
     def clear(self):
         """Clear contents of display buffer."""
