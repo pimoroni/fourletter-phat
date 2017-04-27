@@ -2,7 +2,15 @@
 
 import sys
 import time
-import fourletterphat as flp
+import fourletterphat
+
+print("""
+Four Letter pHAT: countdown.py
+
+This example will display a countdown.
+
+Press Ctrl+C to exit.
+""")
 
 def safe_input(message):
     try:
@@ -10,12 +18,23 @@ def safe_input(message):
     except NameError:
         return input(message)
 
-cd_time = safe_input('Enter a countdown time in MM:SS, e.g. "00:30" for 30 seconds: ')
-mins, secs = [float(x) for x in cd_time.strip('"').split(":")]
+mins, secs = 0, 0
+
+while True:
+    cd_time = safe_input('Enter a countdown time in MM:SS, e.g. "00:30" for 30 seconds: ')
+
+    try:
+        mins, secs = [float(x) for x in cd_time.strip('"').split(":")]
+        break
+    except ValueError:
+        pass
+
 start_time = time.time()
 end_time = start_time + (mins * 60) + secs
 run_time = end_time - start_time
 curr_time = start_time
+
+print("Counting down {mins} minutes and {secs} seconds...".format(mins=mins, secs=secs))
 
 while curr_time < end_time:
     curr_time = time.time()
@@ -31,19 +50,21 @@ while curr_time < end_time:
         curr_hundredths = int(remaining * 100 % 100)
         padded_str = str("{0:02d}".format(curr_secs)) + str("{0:02d}".format(curr_hundredths))
 
-    flp.clear()
-    flp.print_str(padded_str)
-    flp.set_decimal(1, 1)
-    flp.show()
+    fourletterphat.clear()
+    fourletterphat.print_str(padded_str)
+    fourletterphat.set_decimal(1, 1)
+    fourletterphat.show()
 
 spinner = ["|", "/", "-", "\\"]
-flp.clear()
+fourletterphat.clear()
+
+print("Done!")
 
 while True:
     for i in range(4):
         for s in spinner:
             s = s * 4
-            flp.clear()
-            flp.print_str(s)
-            flp.show()
+            fourletterphat.clear()
+            fourletterphat.print_str(s)
+            fourletterphat.show()
             time.sleep(1 / 16.0)
