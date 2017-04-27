@@ -44,7 +44,7 @@ class HT16K33(object):
         """
         self._i2c_addr = address
         self._device = i2c
-        self.buffer = bytearray([0]*16)
+        self.clear()
 
     def begin(self):
         """Initialize driver with LEDs enabled and all turned off."""
@@ -106,5 +106,5 @@ class HT16K33(object):
 
     def clear(self):
         """Clear contents of display buffer."""
-        for i, value in enumerate(self.buffer):
-            self.buffer[i] = 0
+        self.buffer = bytearray([0]*16)
+
