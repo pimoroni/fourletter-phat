@@ -18,7 +18,14 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+
+# Patrick Lavernhe: 26 April 2017:
+#                     Add glow function
+#                   7 May 2017:
+#                     Add scroll_print function
+
 from . import HT16K33
+import time
 
 
 # Digit value to bitmask mapping:
@@ -244,3 +251,65 @@ class AlphaNum4(HT16K33.HT16K33):
 
         self.write_display()
 
+    def glow(self, period=4, duration=4):
+        """Cycle display brightness from low to high and back to low,
+        at a frequency of 1/periodicity Hz
+        and for a duration stated in seconds.
+        This function returns after duration seconds.
+        The periodicity acounts from initial brightness back to initial brightness.
+
+        """
+
+        NB_OF_BRIGHTNESSES = 16
+        MIN_BRIGHTNESS = 0
+        MAX_BRIGHTNESS = NB_OF_BRIGHTNESSES - 1
+
+        initial_brightness = self.get_brightness()
+        current_brightness = initial_brightness
+
+        nb_of_transitions = (NB_OF_BRIGHTNESSES-1)*2
+        wait_between_transitions = period / nb_of_transitions
+        time_left = duration
+        adjustment = 1
+        while time_left > 0:
+            if current_brightness == MAX_BRIGHTNESS:
+                # Once we reach max brightness, we go down
+                adjustment = -1
+            elif current_brightness == MIN_BRIGHTNESS:
+                # Once we reach min brightness, we go up
+                adjustment = 1
+
+            current_brightness += adjustment   
+            self.set_brightness(current_brightness)
+
+            time.sleep(wait_between_transitions)
+            time_left -= wait_between_transitions
+
+        self.set_brightness(initial_brightness)
+
+    def scroll_print(self, s, tempo=0.3):
+        """Scroll a string on the display.
+           Display is paused 3xtempo seconds at the start,
+             then tempo seconds after each one character scroll,
+             then 3xtempo seconds at the end
+
+        """
+
+        length = len(s)
+        # No need to scroll if the message is not bigger than the display
+        if length <= 4:
+            self.print_str(s)
+            self.show()
+        else:
+            # Display the message start a bit longer
+            self.print_str(s[0] + s[1] + s[2] + s[3])
+            self.show()
+            time.sleep(tempo * 3)
+
+            for i in range(3, length):
+                self.print_str(s[i - 3] + s[i - 2] + s[i - 1] + s[i])
+                self.show()
+                time.sleep(tempo)
+
+        # Display the message end a bit longer
+        time.sleep(tempo * 3)

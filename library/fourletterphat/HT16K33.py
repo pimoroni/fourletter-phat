@@ -18,6 +18,10 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
+
+# Patrick Lavernhe: 26 April 2017:
+#                   Add get_brightness function
+
 from __future__ import division
 
 
@@ -45,6 +49,7 @@ class HT16K33(object):
         self._i2c_addr = address
         self._device = i2c
         self.clear()
+        self.brightness = 15
 
     def begin(self):
         """Initialize driver with LEDs enabled and all turned off."""
@@ -81,6 +86,7 @@ class HT16K33(object):
             raise ValueError('Brightness must be a value of 0 to 15.')
 
         self._device.write_i2c_block_data(self._i2c_addr, HT16K33_CMD_BRIGHTNESS | brightness, [])
+        self.brightness = brightness
 
     def set_led(self, led, value):
         """Sets specified LED (value of 0 to 127) to the specified value.
@@ -108,3 +114,5 @@ class HT16K33(object):
         """Clear contents of display buffer."""
         self.buffer = bytearray([0]*16)
 
+    def get_brightness(self):
+        return self.brightness

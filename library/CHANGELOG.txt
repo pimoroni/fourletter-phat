@@ -3,3 +3,9 @@
 
 * Initial release
 
+0.0.2
+-----
+
+* Add glow function
+* Add scroll_print function
+
