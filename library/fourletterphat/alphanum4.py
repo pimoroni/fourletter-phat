@@ -18,12 +18,6 @@
 # LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
-
-# Patrick Lavernhe: 26 April 2017:
-#                     Add glow function
-#                   7 May 2017:
-#                     Add scroll_print function
-
 from . import HT16K33
 import time
 
@@ -252,11 +246,11 @@ class AlphaNum4(HT16K33.HT16K33):
         self.write_display()
 
     def glow(self, period=4, duration=4):
-        """Cycle display brightness from low to high and back to low,
-        at a frequency of 1/periodicity Hz
-        and for a duration stated in seconds.
-        This function returns after duration seconds.
-        The periodicity acounts from initial brightness back to initial brightness.
+        """Cycles display brightness from low to high and back to low,
+        at a frequency of 1/period Hz and for a duration stated in seconds.
+        The periodicity accounts from initial brightness back to initial brightness.
+        :param period: Period of glow effect in seconds. (default 4 for 0.25Hz) 
+        :param duration: Duration of glow effect in seconds. Function returns after duration seconds (default 4 seconds)
 
         """
 
@@ -288,10 +282,10 @@ class AlphaNum4(HT16K33.HT16K33):
         self.set_brightness(initial_brightness)
 
     def scroll_print(self, s, tempo=0.3):
-        """Scroll a string on the display.
-           Display is paused 3xtempo seconds at the start,
-             then tempo seconds after each one character scroll,
-             then 3xtempo seconds at the end
+        """Scrolls a string on the display.
+           
+           :param tempo: Display is paused 3xtempo seconds at the start,
+             then tempo seconds after each one character scroll, then 3xtempo seconds at the end. (default 0.3 seconds)
 
         """
 

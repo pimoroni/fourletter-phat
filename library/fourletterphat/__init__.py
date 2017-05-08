@@ -1,15 +1,10 @@
-# Patrick Lavernhe: 26 April 2017:
-#                   Add glow function
-#                   7 May 2017:
-#                     Add scroll_print function
-
 import atexit
 from sys import exit, version_info
 from .i2c_bus import bus
 from .alphanum4 import AlphaNum4
 from .HT16K33 import *
 
-__version__ = '0.0.2'
+__version__ = '0.0.1'
 
 display = AlphaNum4(i2c=bus)
 display.begin()
