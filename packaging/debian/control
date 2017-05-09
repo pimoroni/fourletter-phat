@@ -13,7 +13,7 @@ Architecture: all
 Section: python
 Depends: ${misc:Depends}, ${python:Depends}, python-smbus
 Suggests: python-numpy
-Description: python library designed to control Four Letter HAT
+Description: Python library for the Pimoroni Four Letter pHAT
  Ideal for displaying short strings and numerical values.
  .
  This is the Python 2 version of the package.
@@ -23,7 +23,7 @@ Architecture: all
 Section: python
 Depends: ${misc:Depends}, ${python3:Depends}, python3-smbus
 Suggests: python3-numpy
-Description: python library designed to control Four Letter HAT
+Description: python library for the Pimoroni Four Letter pHAT
  Ideal for displaying short strings and numerical values.
  .
  This is the Python 3 version of the package.
