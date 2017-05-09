@@ -16,7 +16,11 @@ fourletterphat.clear()
 fourletterphat.print_str("BLNK")
 fourletterphat.show()
 
-for blink_speed in [fourletterphat.HT16K33_BLINK_HALFHZ, fourletterphat.HT16K33_BLINK_1HZ, fourletterphat.HT16K33_BLINK_2HZ]:
+# Display each blinkt speed for 4 seconds
+for blink_speed in [
+        fourletterphat.HT16K33_BLINK_HALFHZ,
+        fourletterphat.HT16K33_BLINK_1HZ,
+        fourletterphat.HT16K33_BLINK_2HZ]:
     fourletterphat.set_blink(blink_speed)
     time.sleep(4)
 

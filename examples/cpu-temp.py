@@ -17,12 +17,14 @@ Press Ctrl+C to exit.
 while True:
     # Get temp forom vcgencmd in the format: "temp=XY.Z'C"
     # and reduce to the format "XYZC" for display
-    temp = Popen(["vcgencmd", "measure_temp"], stdout=PIPE)
-    temp = temp.stdout.read().decode('utf-8')
-    temp = temp[5:].replace(".", "").replace("'","").strip()
+    temperature = Popen(["vcgencmd", "measure_temp"], stdout=PIPE)
+    temperature = temperature.stdout.read().decode('utf-8')
+
+    # Rempve "temp=" and the "." and "'" chars
+    temperature = temperature[5:].replace(".", "").replace("'", "").strip()
 
     fourletterphat.clear()
-    fourletterphat.print_str(temp)
+    fourletterphat.print_str(temperature)
     fourletterphat.set_decimal(1, 1)
     fourletterphat.show()
 
