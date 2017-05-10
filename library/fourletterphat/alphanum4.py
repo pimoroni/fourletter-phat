@@ -254,6 +254,9 @@ class AlphaNum4(HT16K33.HT16K33):
 
         """
 
+        period = float(period)
+        duration = float(duration)
+
         NB_OF_BRIGHTNESSES = 16
         MIN_BRIGHTNESS = 0
         MAX_BRIGHTNESS = NB_OF_BRIGHTNESSES - 1
