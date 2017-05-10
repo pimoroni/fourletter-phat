@@ -22,6 +22,8 @@ print_float = display.print_float
 print_hex = display.print_hex
 show = display.show
 clear = display.clear
+glow = display.glow
+scroll_print = display.scroll_print
 
 def _exit():
     display.clear()
