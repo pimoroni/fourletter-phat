@@ -4,7 +4,7 @@ from .i2c_bus import bus
 from .alphanum4 import AlphaNum4
 from .HT16K33 import *
 
-__version__ = '0.0.1'
+__version__ = '0.0.2'
 
 display = AlphaNum4(i2c=bus)
 display.begin()
