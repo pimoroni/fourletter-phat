@@ -97,3 +97,28 @@ Once you’ve made your changes, you’ll need to update the display.
 fourletterphat.show()
 ```
 Display buffer on display.
+
+## Glow The Display
+
+Cycle display brightness from low to high and back to low.
+
+```python
+fourletterphat.glow(self, period=4, duration=4)
+```
+Cycle display brightness from low to high and back to low,
+at a frequency of 1/periodicity Hz
+and for a duration stated in seconds.
+This function returns after duration seconds.
+The periodicity acounts from initial brightness back to initial brightness.
+
+## Scroll a message
+
+Scroll a string on the display.
+
+```python
+fourletterphat.scroll_print(self, s, tempo=0.3)
+```
+Scroll a string on the display.
+Display is paused 3xtempo seconds at the start,
+then tempo seconds after each one character scroll,
+then 3xtempo seconds at the end
