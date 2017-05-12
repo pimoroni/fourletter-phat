@@ -1,3 +1,7 @@
+# This file was borrowed from https://github.com/adafruit/Adafruit_Python_LED_Backpack
+# Original copyright included below:
+# <3 @ Adafruit
+#
 # Copyright (c) 2014 Adafruit Industries
 # Author: Tony DiCola
 #
