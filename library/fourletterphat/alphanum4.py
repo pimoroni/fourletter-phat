@@ -190,11 +190,15 @@ class AlphaNum4(HT16K33.HT16K33):
 
         """
 
-        # Calculcate starting position of digits based on justification.
-        pos = (4-len(value)) if justify_right else 0
+        # Left or right justify string according to justify_right parameter
+        if justify_right:
+            value = value.rjust(4, ' ')
+        else:
+            value = value.ljust(4, ' ')
+
         # Go through each character and print it on the display.
         for i, ch in enumerate(value):
-            self.set_digit(i+pos, ch)
+            self.set_digit(i, ch)
 
     def print_number_str(self, value, justify_right=True):
         """Print a 4 character long string of numeric values to the display.
@@ -204,14 +208,26 @@ class AlphaNum4(HT16K33.HT16K33):
 
         """
 
+        value = str(value)
+
         # Calculate length of value without decimals.
-        length = len(str(value).replace(".",""))
+        length = len(value.replace(".",""))
+
         # Error if value without decimals is longer than 4 characters.
         if length > 4:
-            self.print_str('----')
-            return
-        # Calculcate starting position of digits based on justification.
-        pos = (4-length) if justify_right else 0
+            raise ValueError("Number '{}' is too large to display".format(value))
+
+        # Left or right justify string according to justify_right parameter
+        # Extra justification is added for any decimal places which don't take up a char slot
+        pos = 0
+
+        justify_length = len(value) - length
+
+        if justify_right:
+            value = value.rjust(4 + justify_length, ' ')
+        else:
+            value = value.ljust(4 + justify_length, ' ')
+
         # Go through each character and print it on the display.
         for i, ch in enumerate(value):
             if ch == '.':
