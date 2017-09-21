@@ -4,9 +4,9 @@ try:
     import smbus
 except ImportError:
     if version_info[0] < 3:
-        exit("This library requires python-smbus\nInstall with: sudo apt-get install python-smbus")
+        raise ImportError("This library requires python-smbus\nInstall with: sudo apt-get install python-smbus")
     elif version_info[0] == 3:
-        exit("This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus")
+        raise ImportError("This library requires python3-smbus\nInstall with: sudo apt-get install python3-smbus")
 
 bus = smbus.SMBus(1)
 
