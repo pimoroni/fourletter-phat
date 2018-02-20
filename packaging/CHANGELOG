@@ -1,3 +1,11 @@
+fourletterphat (0.1.0) STABLE; urgency=low
+
+  * Improvement: deferred setup to avoid side-effects upon import
+  * Improvement: raise exception when missing smbus, rather than hard exit()
+  * BugFix: fixed print_str not blanking unused characters
+
+ -- Phil Howard <phil@pimoroni.com>  Tue, 20 Feb 2018 00:00:00 +0000
+
 fourletterphat (0.0.2) STABLE; urgency=low
 
   * New: set_blink method to enable built-in blink

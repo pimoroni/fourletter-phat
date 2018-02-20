@@ -1,3 +1,10 @@
+0.1.0
+-----
+
+* Improvement: deferred setup to avoid side-effects upon import
+* Improvement: raise exception when missing smbus, rather than hard exit()
+* BugFix: fixed print_str not blanking unused characters
+
 0.0.2
 -----
 
