@@ -97,6 +97,7 @@ def setup(app):
     app.add_autodocumenter(ClassOutlineDocumenter)
 
 import fourletterphat
+fourletterphat.setup() # Required to make documented methods available
 
 PACKAGE_NAME = u"Four Letter pHAT"
 PACKAGE_HANDLE = "FourLetterpHAT"
