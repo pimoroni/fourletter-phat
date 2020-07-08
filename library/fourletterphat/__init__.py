@@ -11,10 +11,23 @@ display = None
 
 _is_setup = False
 
+_clear_on_exit = True
 
 def _exit():
-    display.clear()
-    display.show()
+    if _clear_on_exit:
+        display.clear()
+        display.show()
+    
+def set_clear_on_exit():
+    """Toggle the clear on exit flag.
+
+    Default value will clear the display on exit.
+
+    """
+
+    global _clear_on_exit
+
+    _clear_on_exit = not _clear_on_exit
 
 def set_blink(frequency):
     """Blink display at specified frequency.
