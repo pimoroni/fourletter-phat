@@ -84,3 +84,8 @@ Update The Display
 Once you've made your changes, you'll need to update the display.
 
 .. automethod:: fourletterphat.display.show
+
+Flip The Display
+----------------
+
+.. automethod:: fourletterphat.display.set_flipped
