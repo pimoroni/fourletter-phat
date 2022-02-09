@@ -23,6 +23,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 from . import HT16K33
+from . import flipper
 import time
 
 
@@ -137,6 +138,7 @@ class AlphaNum4(HT16K33.HT16K33):
 
         """
 
+        self.flipped = False
         super(AlphaNum4, self).__init__(**kwargs)
 
     def set_digit_raw(self, pos, bitmask):
@@ -151,6 +153,11 @@ class AlphaNum4(HT16K33.HT16K33):
             return
         # Set the digit bitmask value at the appropriate position.
         # Also set bit 7 (decimal point) if decimal is True.
+        # if flipped, turn the letter upside-down and set the position
+        # to the opposite side of the screen.
+        if self.flipped:
+            pos = 3 - pos
+            bitmask = flipper.flipbitmask(bitmask)
         self.buffer[pos*2]   = bitmask & 0xFF
         self.buffer[pos*2+1] = (bitmask >> 8) & 0xFF
 

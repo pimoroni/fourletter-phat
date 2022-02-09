@@ -122,3 +122,17 @@ Scroll a string on the display.
 Display is paused 3xtempo seconds at the start,
 then tempo seconds after each one character scroll,
 then 3xtempo seconds at the end
+
+## Flip the display
+
+Write everything upside-down.
+
+```python
+fourletterphat.set_flipped()
+```
+
+Undo by calling set_flipped(False)
+
+```python
+fourletterphat.set_flipped(False)
+```
