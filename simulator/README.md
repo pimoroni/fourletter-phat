@@ -1,8 +1,8 @@
-# Scroll pHAT HD Simulator
+# Four Letter pHAT Simulator
 
-A Tk based server to simulate Scroll pHAT HD on your Windows, Linux or macOS PC.
+A Tk based server to simulate Four Letter pHAT on your Windows, Linux or macOS PC.
 
-![Swirl running in Scroll pHAT HD simulator](simulator.gif)
+![Example running in Four Letter pHAT simulator](simulator.gif)
 
 Works by hijacking the `smbus` module imported by `fourletterphat` and replacing it with a FIFO pipe to the Tk based simulator.
 
