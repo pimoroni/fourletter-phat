@@ -163,6 +163,19 @@ def scroll_print(s, tempo=0.3):
     setup()
     display.scroll_print(s, tempo)
 
+def set_flipped(flipped=True):
+    """If set to true, writes everything upside-down
+    
+    Arguments:
+        flipped {boolean} -- True if upside-down, False otherwise
+
+    Example:
+        fourletterphat.set_flipped() -- sets the display upside-down
+        fourletterphat.set_flipped(False) -- reverts back to original
+    """
+    setup()
+    display.flipped = flipped
+
 def setup():
     """Set up the display."""
 
@@ -179,4 +192,3 @@ def setup():
     atexit.register(_exit)
 
     _is_setup = True
-
